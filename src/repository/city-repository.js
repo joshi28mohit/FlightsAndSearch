@@ -1,3 +1,4 @@
+//This file will have a class that will be used to perform the CRUD operations in city table.
 const {City} = require('../models/index');
 
 
