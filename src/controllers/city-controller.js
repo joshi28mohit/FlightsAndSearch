@@ -1,5 +1,7 @@
 const { CityService } = require('../services/index');
 
+const CityService = new CityService();
+
 const create = (req,res) => {
     try {
         
