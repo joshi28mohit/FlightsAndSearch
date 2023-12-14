@@ -1,6 +1,6 @@
 //This file will have a class that will be used to perform the CRUD operations in city table.
 const {City} = require('../models/index');
-
+const { Op } = require('sequelize');
 
 class CityRepository{
     async createCity({name}){
@@ -64,11 +64,21 @@ class CityRepository{
         }
     }
 
-    async getAllCities(){
+    async getAllCities(filter){  //Filter can be empty also
         try {
+            if(filter.name){
+                const cities = await City.findAll({
+                    where: {
+                        name: {
+                            [Op.startsWith]: filter.name
+                        }
+                    }
+                });
+                return cities;
+            }
             const cities = await City.findAll();
             return cities;
-        } catch (error) {
+        } catch (error) {  
             console.log("Something went wrong in the repository layer");
             throw(error);
         }
