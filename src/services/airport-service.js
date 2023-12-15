@@ -1,14 +1,14 @@
-const {AirportRepository} = require('../repository/index');
+const { AirportRepository } = require('../repository/index');
 
 class AirportService
 {
     constructor(){
-        this.AirportRepository = new AirportRepository();
+        this.airportRepository = new AirportRepository();
     }
 
-    async addAirport(data,AID){
+    async addAirport(data){
         try {
-            const airport = await this.AirportRepository.addAirport(data,AID);
+            const airport = await this.airportRepository.addAirport(data);
             return airport;
         } catch (error) {
             console.log("Something went wrong at the service layer");
@@ -18,7 +18,7 @@ class AirportService
 
     async deleteAirport(Aid){
         try {
-            const response = await this.AirportRepository.deleteAirport(Aid);
+            const response = await this.airportRepository.deleteAirport(Aid);
             return response;
         } catch (error) {
             console.log("Something went wrong at the service layerr");
@@ -28,7 +28,8 @@ class AirportService
 
     async getAirport(Aid){
         try {
-            const airport = await this.AirportRepository.getAirport(Aid);
+            console.log(Aid);
+            const airport = await this.airportRepository.getAirport(Aid);
             return airport;
         } catch (error) {
             console.log("Something went wrong at the service layerr");
@@ -38,7 +39,8 @@ class AirportService
 
     async updateAirport(Aid,data){
         try {
-            const airport = await this.AirportRepository.updateAirport(Aid,data);
+            console.log(data);
+            const airport = await this.airportRepository.updateAirport(Aid,data);
             return airport;
 
         } catch (error) {
@@ -49,7 +51,7 @@ class AirportService
 
     async updateAddress(Aid,data){
         try {
-            const address = await this.AirportRepository.updateAddress(Aid,data);
+            const address = await this.airportRepository.updateAddress(Aid,data);
             return address;
         } catch (error) {
             console.log("Something went wrong at the service layer");

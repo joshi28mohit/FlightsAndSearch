@@ -4,7 +4,7 @@ const airportService = new AirportService();
 
 const create = async (req, res) => {
     try {
-        const airport = await airportService.addAirport(req.body,req.params.id);
+        const airport = await airportService.addAirport(req.body);
         return res.status(201).json({
             data: airport,
             success: true,
@@ -24,7 +24,7 @@ const create = async (req, res) => {
 
 const destroy = async (req, res) => {
     try {
-        const response = await airportService.deleteAirport(req.param.id);
+        const response = await airportService.deleteAirport(req.params.id);
         return res.status(200).json({
             data: response,
             success: true,
@@ -44,9 +44,9 @@ const destroy = async (req, res) => {
 
 const get = async (req, res) => {
     try {
-        const airport = await airportService.getAirport(req.param.id);
+        const response = await airportService.getAirport(req.params.id);
         return res.status(200).json({
-            data: airport,
+            data: response,
             success: true,
             message: 'Successfully fetched a Airport',
             err: {}
@@ -64,9 +64,9 @@ const get = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        const airport = await airportService.updateAirport(req.param.id,req.body);
+        const response = await airportService.updateAirport(req.params.id,req.body);
         return res.status(200).json({
-            data: airport,
+            data: response,
             success: true,
             message: 'Successfully updated a Airport',
             err: {}

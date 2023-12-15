@@ -1,12 +1,9 @@
 const { Airport } = require('../models/index');
 
 class AirportRepository {
-    async addAirport({aname},AID){
+    async addAirport(data){
         try {
-            const airport = await Airport.create({
-                name: aname,
-                cityId: AID
-            });
+            const airport = await Airport.create(data);
             return airport;
         } catch (error) {
             console.log("Error in the repository layer");
