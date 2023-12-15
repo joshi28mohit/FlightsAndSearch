@@ -1,10 +1,11 @@
 const { Airport } = require('../models/index');
 
 class AirportRepository {
-    async addAirport({name}){
+    async addAirport({aname},AID){
         try {
             const airport = await Airport.create({
-                name
+                name: aname,
+                cityId: AID
             });
             return airport;
         } catch (error) {

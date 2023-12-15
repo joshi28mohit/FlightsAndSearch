@@ -6,9 +6,9 @@ class AirportService
         this.AirportRepository = new AirportRepository();
     }
 
-    async addAirport(data){
+    async addAirport(data,AID){
         try {
-            const airport = await this.AirportRepository.addAirport(data);
+            const airport = await this.AirportRepository.addAirport(data,AID);
             return airport;
         } catch (error) {
             console.log("Something went wrong at the service layer");
