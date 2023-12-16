@@ -2,7 +2,7 @@ const {FlightService} = require('../services/index');
 
 const flightService = new FlightService();
 
-const create = async (req,res) => {
+const create = async (req, res) => {
     try {
         const flightRequestData = {
             flightNumber: req.body.flightNumber, 
