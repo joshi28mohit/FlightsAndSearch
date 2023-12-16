@@ -19,5 +19,6 @@ router.patch('/airport/:id', AirportController.update);
 router.patch('/airport/addressupdate/:id', AirportController.addupdate);
 
 router.post('/flights',FlightController.create);
+router.get('/flights',FlightController.getAll);
 
 module.exports = router;
