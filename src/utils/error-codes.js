@@ -1,4 +1,4 @@
-const ClientErrorCodes = Object.freeqe({   //Here Object.freeze specifies that the values of these error codes wont get updated even if someone wants to update
+const ClientErrorCodes = Object.freeze({   //Here Object.freeze specifies that the values of these error codes wont get updated even if someone wants to update
     BAD_REQUEST: 400,
     UNAUTHORISED: 401,
     NOT_FOUND: 404
